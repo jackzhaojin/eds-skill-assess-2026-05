@@ -23,3 +23,4 @@ mlflow.db
 mlflow.log
 mlartifacts/
 2026-05-eds-skill-assessment-with-mlflow.zip
+.playwright-mcp/

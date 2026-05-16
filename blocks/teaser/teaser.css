@@ -1,0 +1,131 @@
+.teaser > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+.teaser-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.teaser-visual {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.teaser-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.teaser-text {
+  padding: 24px 16px;
+}
+
+.teaser-eyebrow {
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--body-font-size-xs);
+  color: var(--dark-color);
+  margin: 0 0 4px;
+}
+
+.teaser-text h2,
+.teaser-text h3 {
+  margin: 0 0 12px;
+}
+
+.teaser-text > p {
+  margin: 0 0 16px;
+}
+
+.teaser-text > p:last-child {
+  margin-bottom: 0;
+}
+
+.teaser-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* --- Banner variant: single, full-bleed, hero-like --- */
+.teaser.banner .teaser-item {
+  background-color: var(--light-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.teaser.banner .teaser-visual img {
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+}
+
+.teaser.banner .teaser-text {
+  padding: 32px 24px;
+}
+
+@media (width >= 900px) {
+  .teaser.banner .teaser-item {
+    flex-direction: row;
+    min-height: 380px;
+  }
+
+  .teaser.banner .teaser-visual {
+    flex: 1.2;
+  }
+
+  .teaser.banner .teaser-visual img {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .teaser.banner .teaser-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 40px;
+  }
+}
+
+/* --- Cards variants (2/3/4): grid of bordered cards --- */
+.teaser.cards-2 .teaser-item,
+.teaser.cards-3 .teaser-item,
+.teaser.cards-4 .teaser-item {
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--background-color);
+}
+
+.teaser.cards-2 .teaser-visual img,
+.teaser.cards-3 .teaser-visual img,
+.teaser.cards-4 .teaser-visual img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (width >= 600px) {
+  .teaser.cards-2 > ul,
+  .teaser.cards-3 > ul,
+  .teaser.cards-4 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .teaser.cards-3 > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .teaser.cards-4 > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

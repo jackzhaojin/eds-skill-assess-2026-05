@@ -1,2 +1,7 @@
 helix-importer-ui
 *.min.js
+2026-05-eds-skill-assessment-with-mlflow/
+.mlflow-skills/
+.venv/
+.playwright-mcp/
+scripts/smoke_trace.py
