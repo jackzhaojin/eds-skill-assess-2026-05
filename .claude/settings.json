@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/jackjin/dev/eds-skill-assess-2026-05/.venv/bin/mlflow autolog claude stop-hook"
+          }
+        ]
+      }
+    ]
+  },
+  "env": {
+    "MLFLOW_CLAUDE_TRACING_ENABLED": "true",
+    "MLFLOW_TRACKING_URI": "http://127.0.0.1:5050",
+    "MLFLOW_EXPERIMENT_NAME": "eds-skill-assessment-2026-05"
+  }
+}

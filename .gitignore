@@ -1,3 +1,4 @@
+# --- aem-boilerplate defaults ---
 .hlx/*
 coverage/*
 logs/*
@@ -11,3 +12,13 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+
+# --- mlflow assessment workspace ---
+.venv/
+.env-local
+.mlflow-skills/
+.claude/skills/
+mlflow.db
+mlflow.log
+mlartifacts/
+2026-05-eds-skill-assessment-with-mlflow.zip

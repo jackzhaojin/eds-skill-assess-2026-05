@@ -1,0 +1,245 @@
+{
+  "skill_md_path": "/Users/jackjin/dev/eds-skill-assess-2026-05/2026-05-eds-skill-assessment-with-mlflow/skill-under-test/SKILL.md",
+  "scorers": {
+    "frontmatter_validity": {
+      "scorer": "frontmatter_validity",
+      "passed": true,
+      "issues": [],
+      "frontmatter": {
+        "name": "create-site",
+        "description": "Creates a new AEM Edge Delivery site from scratch \u2014 GitHub repo from the boilerplate, aem-code-sync installation, initial DA content (nav, footer, homepage), and a live preview URL. Use this skill whenever a user wants to create a new AEM Edge Delivery site and no repository or DA content exists yet.",
+        "license": "Apache-2.0",
+        "metadata": {
+          "version": "1.1.0"
+        },
+        "allowed-tools": null
+      }
+    },
+    "description_length": {
+      "scorer": "description_length",
+      "passed": true,
+      "length": 301,
+      "limit": 1024,
+      "description": "Creates a new AEM Edge Delivery site from scratch \u2014 GitHub repo from the boilerplate, aem-code-sync installation, initial DA content (nav, footer, homepage), and a live preview URL. Use this skill whenever a user wants to create a new AEM Edge Delivery site and no repository or DA content exists yet."
+    },
+    "referenced_files_exist": {
+      "scorer": "referenced_files_exist",
+      "passed": true,
+      "candidates": [],
+      "found": [],
+      "missing": []
+    },
+    "must_have_patterns": {
+      "scorer": "must_have_patterns",
+      "passed": true,
+      "missing": [],
+      "details": [
+        {
+          "label": "aem-code-sync as human action with canonical install URL",
+          "pattern": "aem-code-sync.*?(human action|user must complete it).*?github\\.com/apps/aem-code-sync/installations/new",
+          "found": true,
+          "severity": "block"
+        },
+        {
+          "label": "explicit verify checks (HTTP status codes)",
+          "pattern": "(verify|success).{0,40}(http\\s*\\d{3}|status code|\\b20[01]\\b|\\b40\\d\\b)",
+          "found": true,
+          "severity": "block"
+        },
+        {
+          "label": "distinguishes from page-import",
+          "pattern": "page-import",
+          "found": true,
+          "severity": "block"
+        },
+        {
+          "label": "distinguishes from content-driven-development",
+          "pattern": "content-driven-development",
+          "found": true,
+          "severity": "block"
+        },
+        {
+          "label": "DA token cache check path",
+          "pattern": "(~/\\.aem/da-token\\.json|cached token|token cache)",
+          "found": true,
+          "severity": "block"
+        },
+        {
+          "label": "DA token refresh/manual fallback path",
+          "pattern": "(da-auth-helper\\s+token|refresh|Manual token)",
+          "found": true,
+          "severity": "block"
+        },
+        {
+          "label": "Bearer token called out on preview requests",
+          "pattern": "(preview.{0,80}Bearer|DA-sourced content (requires|needs) (the )?Bearer)",
+          "found": true,
+          "severity": "block"
+        },
+        {
+          "label": "Reference to aem.live",
+          "pattern": "https?://(?:www\\.)?aem\\.live",
+          "found": true,
+          "severity": "block"
+        },
+        {
+          "label": "Reference to da.live/docs",
+          "pattern": "https?://da\\.live/docs",
+          "found": true,
+          "severity": "block"
+        },
+        {
+          "label": "Reference to aem-boilerplate",
+          "pattern": "github\\.com/adobe/aem-boilerplate",
+          "found": true,
+          "severity": "block"
+        },
+        {
+          "label": "Reference to admin API",
+          "pattern": "(admin\\.hlx\\.page|aem\\.live/docs/admin)",
+          "found": true,
+          "severity": "block"
+        }
+      ]
+    },
+    "must_not_have_patterns": {
+      "scorer": "must_not_have_patterns",
+      "passed": true,
+      "hits": [
+        {
+          "label": "stale copyright year (\u00a9 2024) in templated content",
+          "severity": "warn",
+          "matches": [
+            "\u00a9 2024"
+          ]
+        }
+      ],
+      "blocking_hits": [],
+      "details": [
+        {
+          "label": "hardcoded secret/token",
+          "pattern": "\\b(?:sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{30,}|Bearer\\s+ey[A-Za-z0-9._-]{20,}|AKIA[0-9A-Z]{16})\\b",
+          "found": false,
+          "severity": "block",
+          "matches": []
+        },
+        {
+          "label": "stale copyright year (\u00a9 2024) in templated content",
+          "pattern": "\u00a9\\s*2024",
+          "found": true,
+          "severity": "warn",
+          "matches": [
+            "\u00a9 2024"
+          ]
+        },
+        {
+          "label": "disables verification / skips preview / bypasses IMS",
+          "pattern": "(--no-verify|skip\\s+preview|bypass(?:es)?\\s+(?:the\\s+)?IMS|disable\\s+verification)",
+          "found": false,
+          "severity": "block",
+          "matches": []
+        },
+        {
+          "label": "clobbers existing repo/content without confirm",
+          "pattern": "(--force(?!.*confirm)|overwrite without confirm)",
+          "found": false,
+          "severity": "warn",
+          "matches": []
+        },
+        {
+          "label": "downstream concern conflation (CDN, RUM, custom domain configuration)",
+          "pattern": "(akamai|RUM\\b|OpTel|push invalidation|domain keys)",
+          "found": false,
+          "severity": "warn",
+          "matches": []
+        }
+      ]
+    },
+    "link_health": {
+      "scorer": "link_health",
+      "passed": false,
+      "total_urls_checked": 10,
+      "reference_urls_checked": 7,
+      "broken_total": 2,
+      "broken_reference": 1,
+      "broken_reference_details": [
+        {
+          "url": "https://www.aem.live/developer/create-site.md",
+          "status": 404,
+          "ok": false,
+          "final_url": "https://www.aem.live/developer/create-site.md"
+        }
+      ],
+      "broken_other_details": [
+        {
+          "url": "https://api.github.com/repos/adobe/aem-boilerplate/generate",
+          "status": 404,
+          "ok": false,
+          "final_url": "https://api.github.com/repos/adobe/aem-boilerplate/generate"
+        }
+      ],
+      "results": [
+        {
+          "url": "https://api.github.com/repos/adobe/aem-boilerplate/generate",
+          "status": 404,
+          "ok": false,
+          "final_url": "https://api.github.com/repos/adobe/aem-boilerplate/generate"
+        },
+        {
+          "url": "https://da.live/docs",
+          "status": 200,
+          "ok": true,
+          "final_url": "https://da.live/docs"
+        },
+        {
+          "url": "https://github.com/adobe-rnd/da-auth-helper",
+          "status": 200,
+          "ok": true,
+          "final_url": "https://github.com/adobe-rnd/da-auth-helper"
+        },
+        {
+          "url": "https://github.com/adobe/aem-boilerplate",
+          "status": 200,
+          "ok": true,
+          "final_url": "https://github.com/adobe/aem-boilerplate"
+        },
+        {
+          "url": "https://github.com/apps/aem-code-sync",
+          "status": 200,
+          "ok": true,
+          "final_url": "https://github.com/apps/aem-code-sync"
+        },
+        {
+          "url": "https://github.com/apps/aem-code-sync/installations/new",
+          "status": 200,
+          "ok": true,
+          "final_url": "https://github.com/login?integration=aem-code-sync&return_to=%2Fapps%2Faem-code-sync%2Finstallations%2Fnew"
+        },
+        {
+          "url": "https://github.com/settings/tokens/new",
+          "status": 200,
+          "ok": true,
+          "final_url": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Ftokens%2Fnew"
+        },
+        {
+          "url": "https://opensource.adobe.com/da-admin/",
+          "status": 200,
+          "ok": true,
+          "final_url": "https://opensource.adobe.com/da-admin/"
+        },
+        {
+          "url": "https://www.aem.live/developer/create-site.md",
+          "status": 404,
+          "ok": false,
+          "final_url": "https://www.aem.live/developer/create-site.md"
+        },
+        {
+          "url": "https://www.aem.live/docs/admin.html",
+          "status": 200,
+          "ok": true,
+          "final_url": "https://www.aem.live/docs/admin.html"
+        }
+      ]
+    }
+  }
+}

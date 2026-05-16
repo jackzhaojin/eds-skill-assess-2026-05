@@ -1,3 +1,4 @@
+# --- aem-boilerplate defaults ---
 .*
 *.md
 karma.config.js
@@ -5,3 +6,11 @@ LICENSE
 package.json
 package-lock.json
 test/*
+
+# --- mlflow assessment workspace (must not be published to EDS) ---
+mlflow.db
+mlflow.log
+mlartifacts/
+scripts/smoke_trace.py
+2026-05-eds-skill-assessment-with-mlflow/
+2026-05-eds-skill-assessment-with-mlflow.zip
