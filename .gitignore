@@ -18,6 +18,7 @@ helix-importer-ui
 .env-local
 .mlflow-skills/
 .claude/skills/
+.claude/mlflow/
 mlflow.db
 mlflow.log
 mlartifacts/
