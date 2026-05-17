@@ -23,3 +23,6 @@ mlartifacts/
 
 # --- page-import scratch ---
 import-work/
+
+# --- documentation / prompt logs (tracked in git, not served) ---
+ai-docs/
