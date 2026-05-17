@@ -7,10 +7,19 @@ package.json
 package-lock.json
 test/*
 
-# --- mlflow assessment workspace (must not be published to EDS) ---
+# --- build / tooling artifacts (not served) ---
+node_modules/
+coverage/
+logs/
+helix-importer-ui/
+*.bak
+
+# --- mlflow assessment workspace ---
 mlflow.db
 mlflow.log
 mlartifacts/
-scripts/smoke_trace.py
 2026-05-eds-skill-assessment-with-mlflow/
 2026-05-eds-skill-assessment-with-mlflow.zip
+
+# --- page-import scratch ---
+import-work/

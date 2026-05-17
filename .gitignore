@@ -24,3 +24,10 @@ mlflow.log
 mlartifacts/
 2026-05-eds-skill-assessment-with-mlflow.zip
 .playwright-mcp/
+
+# --- python bytecode ---
+__pycache__/
+*.pyc
+
+# --- page-import scratch (local-only working data) ---
+import-work/

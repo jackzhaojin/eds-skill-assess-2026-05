@@ -8,6 +8,14 @@
             "command": "/Users/jackjin/dev/eds-skill-assess-2026-05/.venv/bin/mlflow autolog claude stop-hook"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/jackjin/dev/eds-skill-assess-2026-05/.venv/bin/python /Users/jackjin/dev/eds-skill-assess-2026-05/2026-05-eds-skill-assessment-with-mlflow/hooks/skill_tracker.py"
+          }
+        ]
       }
     ]
   },
