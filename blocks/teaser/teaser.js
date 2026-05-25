@@ -20,12 +20,12 @@ function markEyebrow(textCell) {
   first.textContent = em.textContent;
 }
 
-function markCtas(textCell) {
+function markCtas(textCell, primaryClass) {
   const cta = [...textCell.querySelectorAll('p')].reverse().find(isCtaParagraph);
   if (!cta) return;
   cta.classList.add('teaser-ctas');
   cta.querySelectorAll('a').forEach((a, i) => {
-    a.classList.add('button', i === 0 ? 'primary' : 'secondary');
+    a.classList.add('button', i === 0 ? primaryClass : 'secondary');
   });
 }
 
@@ -36,6 +36,10 @@ export default function decorate(block) {
     variant = rows.length === 1 ? 'banner' : 'cards-3';
     block.classList.add(variant);
   }
+
+  // banner is the high-impact unit: its first CTA uses the reserved accent (red);
+  // card variants use the standard primary (blue).
+  const primaryClass = variant === 'banner' ? 'accent' : 'primary';
 
   const ul = document.createElement('ul');
   rows.forEach((row) => {
@@ -49,7 +53,7 @@ export default function decorate(block) {
       } else {
         wrap.className = 'teaser-text';
         markEyebrow(cell);
-        markCtas(cell);
+        markCtas(cell, primaryClass);
       }
       wrap.append(...cell.childNodes);
       li.append(wrap);

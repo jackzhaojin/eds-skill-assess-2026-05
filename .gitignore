@@ -31,3 +31,5 @@ __pycache__/
 
 # --- page-import scratch (local-only working data) ---
 import-work/
+.stitch/
+.playwright-cli/
